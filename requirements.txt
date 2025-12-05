@@ -1,0 +1,12 @@
+# Core LiveKit Agents Framework
+livekit-agents>=1.0.0
+
+# LiveKit Plugins
+livekit-plugins-openai>=0.6.0
+livekit-plugins-deepgram>=0.6.0
+livekit-plugins-elevenlabs>=0.6.0
+livekit-plugins-silero>=0.6.0
+
+# Additional dependencies
+python-dotenv>=1.0.0
+asyncio>=3.4.3

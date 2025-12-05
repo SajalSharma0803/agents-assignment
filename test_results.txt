@@ -1,0 +1,241 @@
+INFO:__main__:
+======================================================================
+INFO:__main__:LIVEKIT INTELLIGENT INTERRUPTION HANDLER - TEST SUITE
+INFO:__main__:======================================================================
+
+test_command_words_while_speaking (__main__.TestInterruptionHandler.test_command_words_while_speaking)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'stop', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'stop'
+INFO:__main__:\u2713 PASS: 'stop' correctly interrupted while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'wait', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'wait'
+INFO:__main__:\u2713 PASS: 'wait' correctly interrupted while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'no', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'no'
+INFO:__main__:\u2713 PASS: 'no' correctly interrupted while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'pause', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'pause'
+INFO:__main__:\u2713 PASS: 'pause' correctly interrupted while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'hold on', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'hold on'
+INFO:__main__:\u2713 PASS: 'hold on' correctly interrupted while speaking
+ok
+test_confidence_threshold (__main__.TestInterruptionHandler.test_confidence_threshold)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'stop', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'stop'
+INFO:__main__:\u2713 PASS: Confidence threshold working correctly
+ok
+test_initialization (__main__.TestInterruptionHandler.test_initialization)
+Test handler initializes correctly. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+ok
+test_mixed_input_with_command (__main__.TestInterruptionHandler.test_mixed_input_with_command)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'yeah wait', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'yeah wait'
+INFO:__main__:\u2713 PASS: 'yeah wait' -> interrupt=True, reason=command_word_detected
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'ok but stop', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'ok but stop'
+INFO:__main__:\u2713 PASS: 'ok but stop' -> interrupt=True, reason=command_word_detected
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'hmm no wait', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'hmm no wait'
+INFO:__main__:\u2713 PASS: 'hmm no wait' -> interrupt=True, reason=command_word_detected
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'yeah okay but pause', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'yeah okay but pause'
+INFO:__main__:\u2713 PASS: 'yeah okay but pause' -> interrupt=True, reason=command_word_detected
+ok
+test_normalize_text (__main__.TestInterruptionHandler.test_normalize_text)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:__main__:\u2713 PASS: Text normalization working correctly
+ok
+test_soft_words_while_silent (__main__.TestInterruptionHandler.test_soft_words_while_silent)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:interrupt_handler:Agent state changed: silent -> silent
+DEBUG:interrupt_handler:Interrupt check - State: silent, Text: 'yeah', Has command: False, Soft only: True
+INFO:interrupt_handler:PROCESS: Agent silent, processing input: 'yeah'
+INFO:__main__:\u2713 PASS: 'yeah' correctly processed while silent
+DEBUG:interrupt_handler:Interrupt check - State: silent, Text: 'ok', Has command: False, Soft only: True
+INFO:interrupt_handler:PROCESS: Agent silent, processing input: 'ok'
+INFO:__main__:\u2713 PASS: 'ok' correctly processed while silent
+DEBUG:interrupt_handler:Interrupt check - State: silent, Text: 'hmm', Has command: False, Soft only: True
+INFO:interrupt_handler:PROCESS: Agent silent, processing input: 'hmm'
+INFO:__main__:\u2713 PASS: 'hmm' correctly processed while silent
+DEBUG:interrupt_handler:Interrupt check - State: silent, Text: 'right', Has command: False, Soft only: True
+INFO:interrupt_handler:PROCESS: Agent silent, processing input: 'right'
+INFO:__main__:\u2713 PASS: 'right' correctly processed while silent
+ok
+test_soft_words_while_speaking (__main__.TestInterruptionHandler.test_soft_words_while_speaking)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'yeah', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'yeah'
+INFO:__main__:\u2713 PASS: 'yeah' correctly ignored while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'ok', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'ok'
+INFO:__main__:\u2713 PASS: 'ok' correctly ignored while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'okay', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'okay'
+INFO:__main__:\u2713 PASS: 'okay' correctly ignored while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'hmm', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'hmm'
+INFO:__main__:\u2713 PASS: 'hmm' correctly ignored while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'uh-huh', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'uh-huh'
+INFO:__main__:\u2713 PASS: 'uh-huh' correctly ignored while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'yeah okay', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'yeah okay'
+INFO:__main__:\u2713 PASS: 'yeah okay' correctly ignored while speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'hmm right', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'hmm right'
+INFO:__main__:\u2713 PASS: 'hmm right' correctly ignored while speaking
+ok
+test_state_transitions (__main__.TestInterruptionHandler.test_state_transitions)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+DEBUG:interrupt_handler:Agent state changed: speaking -> silent
+INFO:__main__:\u2713 PASS: State transitions working correctly
+ok
+test_counting_scenario (__main__.TestRealWorldScenarios.test_counting_scenario)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'got it', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:__main__:
+============================================================
+INFO:__main__:TEST: Counting Interruption
+INFO:__main__:============================================================
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+INFO:__main__:Agent: 'One... two... three...'
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'no stop', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'no stop'
+INFO:__main__:User: 'no stop' -> Agent stops counting \u2713
+INFO:__main__:\u2713 PASS: Counting correctly interrupted
+ok
+test_long_explanation_scenario (__main__.TestRealWorldScenarios.test_long_explanation_scenario)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'got it', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:__main__:
+============================================================
+INFO:__main__:TEST: Long Explanation with Backchanneling
+INFO:__main__:============================================================
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+INFO:__main__:Agent: 'The history of artificial intelligence dates back...'
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'okay', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'okay'
+INFO:__main__:User: 'okay' -> Agent continues speaking \u2713
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'yeah', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'yeah'
+INFO:__main__:User: 'yeah' -> Agent continues speaking \u2713
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'uh-huh', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'uh-huh'
+INFO:__main__:User: 'uh-huh' -> Agent continues speaking \u2713
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'hmm', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'hmm'
+INFO:__main__:User: 'hmm' -> Agent continues speaking \u2713
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'right', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'right'
+INFO:__main__:User: 'right' -> Agent continues speaking \u2713
+INFO:__main__:\u2713 PASS: Agent successfully ignored all backchannels
+ok
+test_question_response_scenario (__main__.TestRealWorldScenarios.test_question_response_scenario)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'got it', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:__main__:
+============================================================
+INFO:__main__:TEST: Question and Response
+INFO:__main__:============================================================
+DEBUG:interrupt_handler:Agent state changed: silent -> silent
+INFO:__main__:Agent: 'Are you ready to continue?'
+INFO:__main__:Agent: [silence]
+DEBUG:interrupt_handler:Interrupt check - State: silent, Text: 'yeah', Has command: False, Soft only: True
+INFO:interrupt_handler:PROCESS: Agent silent, processing input: 'yeah'
+INFO:__main__:User: 'yeah' -> Processed as answer \u2713
+INFO:__main__:Agent would respond: 'Great, let's continue!'
+INFO:__main__:\u2713 PASS: Soft word correctly processed when silent
+ok
+test_urgent_interruption_scenario (__main__.TestRealWorldScenarios.test_urgent_interruption_scenario)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'hmm', 'ok', 'yeah', 'uh-huh', 'got it', 'right'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'wait', 'pause'}
+DEBUG:asyncio:Using proactor: IocpProactor
+INFO:__main__:
+============================================================
+INFO:__main__:TEST: Urgent Interruption
+INFO:__main__:============================================================
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+INFO:__main__:Agent: 'So the next step is to...'
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'stop', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'stop'
+INFO:__main__:User: 'stop' -> Agent stops immediately \u2713
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'wait', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'wait'
+INFO:__main__:User: 'wait' -> Agent stops immediately \u2713
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'no', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'no'
+INFO:__main__:User: 'no' -> Agent stops immediately \u2713
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'hold on', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'hold on'
+INFO:__main__:User: 'hold on' -> Agent stops immediately \u2713
+INFO:__main__:\u2713 PASS: All command words triggered interruption
+ok
+test_empty_input (__main__.TestEdgeCases.test_empty_input)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'yup', 'aha', 'mhmm', 'yeah', 'uh-huh', 'got it', 'yep', 'right', 'hmm', 'ok', 'sure', 'okay'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'cancel', 'wait', 'pause', 'interrupt', 'hang on'}
+DEBUG:asyncio:Using proactor: IocpProactor
+ok
+test_punctuation_handling (__main__.TestEdgeCases.test_punctuation_handling)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'yup', 'aha', 'mhmm', 'yeah', 'uh-huh', 'got it', 'yep', 'right', 'hmm', 'ok', 'sure', 'okay'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'cancel', 'wait', 'pause', 'interrupt', 'hang on'}
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'yeah!', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'yeah!'
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'ok.', Has command: False, Soft only: True
+INFO:interrupt_handler:IGNORE: Soft words only while speaking: 'ok.'
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'stop?', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'stop?'
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'wait...', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'wait...'
+ok
+test_very_long_input (__main__.TestEdgeCases.test_very_long_input)
+Wrapper for async test. ... INFO:interrupt_handler:InterruptionHandler initialized with soft_words: {'yup', 'aha', 'mhmm', 'yeah', 'uh-huh', 'got it', 'yep', 'right', 'hmm', 'ok', 'sure', 'okay'}
+INFO:interrupt_handler:Command words: {'stop', 'no', 'hold on', 'cancel', 'wait', 'pause', 'interrupt', 'hang on'}
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:interrupt_handler:Agent state changed: silent -> speaking
+DEBUG:interrupt_handler:Interrupt check - State: speaking, Text: 'yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah stop', Has command: True, Soft only: False
+INFO:interrupt_handler:INTERRUPT: Command word detected while speaking: 'yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah stop'
+ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.019s
+
+OK
+INFO:__main__:
+======================================================================
+INFO:__main__:TEST SUMMARY
+INFO:__main__:======================================================================
+INFO:__main__:Tests run: 15
+INFO:__main__:Successes: 15
+INFO:__main__:Failures: 0
+INFO:__main__:Errors: 0
+INFO:__main__:======================================================================
+
